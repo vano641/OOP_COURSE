@@ -1,7 +1,4 @@
-/**
- * task1_Product 
- */
-public class task1_Product { // Класс продукт
+public abstract class task1_Product { // Класс продукт Абстрактный
 // конструктор из полей класса:
     public task1_Product(String name, int price) {
         this.name = name;
