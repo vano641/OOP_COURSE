@@ -10,9 +10,11 @@ public class task1_VendingMachine {
     Integer money; // количество денег в автомате.
 
     public task1_Product getProduct(String name){ // на вход принимается Название продукта
-        for (task1_Product product : productList) { // если в коллекции найден введенный продукт
+        for (task1_Product product : productList) {
+            if (product.name.equals(name)) { // если в коллекции найден введенный продукт
             money += product.price; // добавим к общему количеству денег Стоимость данного продукта
             return product; // возвращаем требуемый продукт
+            }
         }
         return null;// продукт не найден
     }
