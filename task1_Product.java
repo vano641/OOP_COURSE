@@ -26,4 +26,14 @@ public abstract class task1_Product { // Класс продукт Абстра�
         this.price = price;
     }
 
+
+    @Override
+    public String toString() {
+        return "Product{" +
+            " name='" + getName() + "\'" +
+            ", price=" + getPrice() +
+            "}";
+    }
+    
+
 }
