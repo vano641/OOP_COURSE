@@ -19,4 +19,15 @@ public class task1_BOWVendingMachine implements task1_VendingMachine {
             }
             return null;
     }
+
+    public task1_BottleOfWater getProduct(String name, int volume){
+        for (task1_Product product : productList) {
+            if (product instanceof task1_BottleOfWater) {
+                if (product.getName().equals(name) && ((task1_BottleOfWater) product).getVolume() == volume) {
+                    return (task1_BottleOfWater) product;
+                }
+            }
+        }
+        return null;
+    }
 }
