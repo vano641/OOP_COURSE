@@ -6,10 +6,10 @@ import java.util.List;
  */
 public class task1_VendingMachine {
 // поля класса:
-    List<task1_Product> productList; // тороговый автомат должен содержать в себе список продуктов 
-    Integer money; // количество денег в автомате.
+    static List<task1_Product> productList; // тороговый автомат должен содержать в себе список продуктов 
+    static Integer money; // количество денег в автомате.
 
-    public task1_Product getProduct(String name){ // на вход принимается Название продукта
+    public static task1_Product getProduct(String name){ // на вход принимается Название продукта
         for (task1_Product product : productList) {
             if (product.name.equals(name)) { // если в коллекции найден введенный продукт
             money += product.price; // добавим к общему количеству денег Стоимость данного продукта
@@ -18,12 +18,13 @@ public class task1_VendingMachine {
         }
         return null;// продукт не найден
     }
-// метод возвращает изначальное количество продуктов    
-    List<task1_Product> initProduct(){
-        List<task1_Product> products = new ArrayList<>(); // список продуктов
-        products.add(new task1_Product()); // добавляем продукты
-        products.add(new task1_Product());
-        products.add(new task1_Product());
-        return products; // возвращаем список продуктов
+
+// метод возвращает Список Названий продуктов. 
+    static List<String> initProduct(){
+        List<String> productsName = new ArrayList<>(); // список Названий продуктов типа String
+        for (task1_Product i : productList) { 
+            productsName.add(i.name); // добавляем в список только Название (поле name  класса task1_Product)
+        }
+        return productsName;
     }
 }
