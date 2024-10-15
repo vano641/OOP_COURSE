@@ -1,13 +1,9 @@
-/**
- * task1_Product 
- */
 public class task1_Product { // Класс продукт
 // конструктор из полей класса:
     public task1_Product(String name, int price) {
         this.name = name;
         this.price = price;
     }
-
 // поля класса приватные:
     private String name; // название продукта
     private int price; // цена продукта
@@ -28,5 +24,9 @@ public class task1_Product { // Класс продукт
     public void setPrice(int price) {
         this.price = price;
     }
-
+// переопределим toString
+    @Override
+    public String toString() {
+        return String.format("name: %s => price: %d", name, price);
+    }   
 }
