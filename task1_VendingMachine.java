@@ -11,9 +11,6 @@ public class task1_VendingMachine {
         this.money = 0; // изначально количество денег на 0
     }
 
-// поля класса приватые:
-    private List<task1_Product> productList; // тороговый автомат должен содержать в себе список продуктов 
-    private Integer money; // количество денег в автомате.
 
     public task1_Product getProduct(String name){ // на вход принимается Название продукта
         for (task1_Product product : productList) { // если в коллекции найден введенный продукт
