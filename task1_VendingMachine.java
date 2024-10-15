@@ -1,33 +1,43 @@
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * task1_VendingMachine
  */
 public class task1_VendingMachine {
-// Конструктор класса
-    public task1_VendingMachine() {
-        this.productList = initProduct(); // Список продуктов берем из Метода initProduct()
-        this.money = 0; // изначально количество денег на 0
+
+// Конструктор
+    public task1_VendingMachine(List<task1_Product> productList, Integer money) {
+        task1_VendingMachine.productList = productList;
+        task1_VendingMachine.money = 0;
     }
+// Поля класса    
+    static List<task1_Product> productList;
+    static Integer money;
 
+// Метод инициализации продуктов
+    public static List<task1_Product> initProduct(){
+        List<task1_Product> list = new ArrayList<>();
+        list.add(new task1_Product("Пискаревское", 50));
+        list.add(new task1_Product("Антоновка", 20));
+        list.add(new task1_Product("Каравай", 45));
+        return list;
+        }
 
-    public task1_Product getProduct(String name){ // на вход принимается Название продукта
-        for (task1_Product product : productList) { // если в коллекции найден введенный продукт
-            if (product.getName().equals(name)) {
-            money += product.getPrice(); // добавим к общему количеству денег Стоимость данного продукта
-            return product; // возвращаем требуемый продукт
+// Метод вызова конкретного продукта по Названию (его цена падает в money)        
+    public static task1_Product getProduct(String name){ // на вход принимается Название продукта
+        for (task1_Product i : productList) { // если в коллекции найден введенный продукт
+            if (i.getName().equals(name)) {
+            money += i.getPrice();
+            return i; // возвращаем требуемый продукт
             }
         }
-        return null;// продукт не найден
+        return null;
     }
-// метод Приватный(т.к используется только в конструкторе) возвращает список продуктов    
-    private List<task1_Product> initProduct(){ // теперь у нас есть Конструктор класса task1_Product
-    // мы можем добавить продукты в список
-        List<task1_Product> products = new ArrayList<>(); // список продуктов
-        products.add(new task1_Product("Молоко",100)); // добавляем продукты
-        products.add(new task1_Product("Вода", 50));// с названием и ценой
-        products.add(new task1_Product("Сухарики Кириешки", 30));
-        return products; // возвращаем список продуктов
+    public static Integer getMoney(){
+        return money;
     }
-}
+    public static List<task1_Product> getProductList(){
+        return productList;
+    }
+
+}   
