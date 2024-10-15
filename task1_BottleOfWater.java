@@ -1,27 +1,28 @@
-public class task1_BottleOfWater extends task1_Product {
-// Класс БутылкаВоды - Наследник класса Продукт
-    
-    // Приватное поле класса - обьем бутылки
-    private int volume;
-    // конструктор
-    public task1_BottleOfWater(String name, int price){
-        super(name, price);
-    }
+/**
+ * Класс Бутфлка Воды, наследник от Продукта
+ */
+public class task1_BottleOfWater extends task1_Product{
 
-    // конструктор который также принимает объем
-    public task1_BottleOfWater(String name, int price, int volume) {
+    public task1_BottleOfWater(String name, int price, Integer volume) {
         super(name, price);
-        this.volume = volume;
+        this.volume = volume;   
     }
-// геттер
-    public int getVolume() {
+/**
+ * поле Класса Бутялка Воды
+ */
+    private Integer volume;
+
+
+    public Integer getVolume() {
         return this.volume;
     }
-// сеттер
+
     public void setVolume(int volume) {
         this.volume = volume;
     }
 
-
-    
+    @Override
+    public String toString() {
+        return String.format("name: %s => price: %d => volume: %d ", name, price, volume);
+    }     
 }
