@@ -1,4 +1,52 @@
-public interface task1_VendingMachine { // Интерфейс
+import java.util.ArrayList;
+import java.util.List;
+/**
+ * task1_VendingMachine
+ */
+public class task1_VendingMachine {
 
-    task1_Product getProduct(String name); // интерфейс возвращает метод getProduct по имени
-}
+// Конструктор
+    public task1_VendingMachine(List<task1_Product> productList, Integer money) {
+        task1_VendingMachine.productList = productList;
+        task1_VendingMachine.money = 0;
+    }
+// Поля класса    
+    static List<task1_Product> productList;
+    static Integer money;
+
+// Метод инициализации Бутылок Воды
+    public static List<task1_Product> initProduct(){
+        List<task1_Product> list = new ArrayList<>();
+        list.add(new task1_BottleOfWater("Кока-Кола", 120, 1));
+        list.add(new task1_BottleOfWater("Святой Источник", 37, 2));
+        list.add(new task1_BottleOfWater("Квас", 70, 3));
+        return list;
+        }
+
+// Метод вызова конкретного продукта по Названию (его цена падает в money)        
+    public static task1_Product getProduct(String name){ // на вход принимается Название продукта
+        for (task1_Product i : productList) { // если в коллекции найден введенный продукт
+            if (i.getName().equals(name)) {
+            money += i.getPrice();
+            return i; // возвращаем требуемый продукт
+            }
+        }
+        return null;
+    }
+    public static Integer getMoney(){
+        return money;
+    }
+    public static List<task1_Product> getProductList(){
+        return productList;
+    }
+
+    public static Integer getVolume(String name){ // на вход принимается Название продукта
+        for (task1_Product i : productList) {
+            if (i.getName().equals(name)) {
+            return ((task1_BottleOfWater) i).getVolume(); // возвращаем требуемый Обьем
+            }
+        }
+        return null;
+    }
+
+}   
